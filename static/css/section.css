@@ -1,0 +1,12 @@
+section {
+  position: absolute;
+  top: 0;
+  left: 100vw;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #1B1B21;
+}
