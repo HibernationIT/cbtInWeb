@@ -5,3 +5,19 @@
 body {
     overflow: hidden;
 }
+
+body > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #1B1B21;
+}
+
+body > * > div {
+    width: 414px;
+    height: 736px;
+}
