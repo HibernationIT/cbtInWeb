@@ -9,33 +9,54 @@
   <link rel="stylesheet" href="static/css" />
 </head>
 <body>
-  <header id="main">
+  <header id="home">
     <div>
       <img src="static/images/logo.svg" alt="logo"/>
       <p>touch screen</p>
       <p>to start</p>
     </div>
   </header>
-  <section id="mainCategory">
+  <section id="main">
     <div>
       <h1>교과 선택</h1>
-      <div id="mainCategorys"></div>
+      <div id="mainList" class="list"></div>
     </div>
   </section>
-  <section id="subCategory">
+  <section id="sub">
     <div>
-      <h1>과목 선택</h1>
-      <div id="subCategorys"></div>
+      <h1 id="subBack" class="back">< &nbsp; &nbsp; 과목 선택</h1>
+      <div id="subList" class="list"></div>
     </div>
   </section>
-  <section>
+  <section id="option">
     <div>
-      <h1>문제 설정</h1>
+      <h1 id="optionBack" class="back">< &nbsp; &nbsp; 문제 설정</h1>
+      <div>
+        <form id="optionForm">
+          <div>
+            <span>전체 문제 개수</span>
+            <div>
+              <span id="allCount"></span>
+              <span>개</span>
+            </div>
+          </div>
+          <div>
+            <label for="problemsCount">문제 개수</label>
+            <div>
+              <input id="problemsCount" name="problemCount" type="number" />
+              <span>개</span>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
   <div id="problem">
 
   </div>
   <script type="application/javascript" src="static/js/main.js"></script>
+  <script type="application/javascript" src="static/js/sub.js"></script>
+  <script type="application/javascript" src="static/js/option.js"></script>
+  <script type="application/javascript" src="static/js/index.js"></script>
 </body>
 </html>

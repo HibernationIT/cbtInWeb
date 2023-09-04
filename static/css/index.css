@@ -18,6 +18,8 @@ body > * {
 }
 
 body > * > div {
-    width: 414px;
+    padding: 0 32px;
+
+    width: 350px;
     height: 736px;
 }
