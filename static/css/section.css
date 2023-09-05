@@ -46,6 +46,22 @@ section button:hover {
 
   margin-bottom: 16px;
 }
+#optionForm input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+#optionForm input {
+  padding: 8px 4px;
+
+  background-color: #25252D;
+  border: none;
+  border-bottom: 2px solid #FFFFFF;
+
+  text-align: right;
+  font-size: 18px;
+  color: #FFFFFF;
+}
 
 .back:hover {
   cursor: pointer;
@@ -70,4 +86,10 @@ section button:hover {
 }
 #option {
   z-index: 3;
+}
+#option > div > div > button {
+  position: absolute;
+  bottom: 0;
+
+  text-align: center;
 }

@@ -2,22 +2,28 @@ class Sub {
   #section = document.querySelector("#sub")
   #listElement = document.querySelector("#subList")
   #backButton = document.querySelector("#subBack")
-  #selectFunction
 
+  #list
+  #main
+  #selectFunction
   #category;
 
   constructor(main, selectFunction) {
     this.#backButton.addEventListener("click", () => this.close())
-
-    fetch("/static/data/"+main+"/과목.csv")
-      .then((res) => res.text())
-      .then((text) => {
-        text.split("\n").forEach((value) => this.#listElement.append(this.#craeteRow(value)))
-      })
-
+    this.#main = main
     this.#selectFunction = selectFunction
   }
 
+  async loadData() {
+    await fetch("/static/data/"+this.#main+"/과목.csv")
+      .then((res) => res.text())
+      .then((text) => this.#list = text.split("\n"))
+  }
+  createRow() {
+    this.#list.forEach((text) => {
+      this.#listElement.append(this.#craeteRow(text))
+    })
+  }
   open() {
     this.#section.style.left = "0px"
   }

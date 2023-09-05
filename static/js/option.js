@@ -1,14 +1,21 @@
 class Option {
   #section = document.querySelector("#option")
   #backButton = document.querySelector("#optionBack")
+
+  #main
+  #sub
   #problems = []
   #problemsCount
   #selectProblemCount
 
   constructor(main, sub) {
     this.#backButton.addEventListener("click", () => this.close())
+    this.#main = main
+    this.#sub = sub
+  }
 
-    fetch("/static/data/" + main + "/" + sub + ".csv")
+  async loadData() {
+    await fetch("/static/data/" + this.#main + "/" + this.#sub + ".csv")
       .then((res) => res.text())
       .then((text) => {
         const problems = text.split("\n")
@@ -25,7 +32,6 @@ class Option {
         })
       })
   }
-
   open() {
     this.#section.style.left = "0px"
   }

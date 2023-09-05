@@ -1,20 +1,25 @@
 class Main {
   #section = document.querySelector("#main")
   #listElement = document.querySelector("#mainList")
-  #selectFunction
 
-  #category;
+  #list
+  #selectFunction
+  #category
 
   constructor(selectFunction) {
-    fetch("/static/data/교과.csv")
-      .then((res) => res.text())
-      .then((text) => {
-        text.split("\n").forEach((value) => this.#listElement.append(this.#createRow(value)))
-      })
-
     this.#selectFunction = selectFunction
   }
 
+  async loadData() {
+    await fetch("/static/data/교과.csv")
+      .then((res) => res.text())
+      .then((text) => this.#list = text.split("\n"))
+  }
+  createRow() {
+    this.#list.forEach((text) => {
+      this.#listElement.append(this.#createRow(text))
+    })
+  }
   open() {
     this.#section.style.opacity = "100%"
     this.#section.style.left = "0px"
@@ -22,7 +27,6 @@ class Main {
   getCategory() {
     return this.#category
   }
-
   #createRow(text) {
     const element = document.createElement("button")
     element.addEventListener("click", () => {
