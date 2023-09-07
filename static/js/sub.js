@@ -15,7 +15,7 @@ class Sub {
   }
 
   async loadData() {
-    await fetch("/static/data/"+this.#main+"/과목.csv")
+    await fetch("static/data/"+this.#main+"/과목.csv")
       .then((res) => res.text())
       .then((text) => this.#list = text.split("\n"))
   }

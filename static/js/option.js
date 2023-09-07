@@ -15,7 +15,7 @@ class Option {
   }
 
   async loadData() {
-    await fetch("/static/data/" + this.#main + "/" + this.#sub + ".csv")
+    await fetch("static/data/" + this.#main + "/" + this.#sub + ".csv")
       .then((res) => res.text())
       .then((text) => {
         const problems = text.split("\n")
