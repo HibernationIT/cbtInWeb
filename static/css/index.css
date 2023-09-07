@@ -24,3 +24,14 @@ body > * > div {
     width: 350px;
     height: 736px;
 }
+input {
+    padding: 8px 4px;
+
+    background-color: #25252D;
+    border: none;
+    border-bottom: 2px solid #FFFFFF;
+
+    width: 350px;
+    font-size: 18px;
+    color: #FFFFFF;
+}

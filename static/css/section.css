@@ -19,7 +19,7 @@ section button {
   margin-bottom: 16px;
   padding: 16px 20px;
 
-  width: 100%;
+  width: 350px;
   height: 56px;
 
   border: none;
@@ -46,21 +46,14 @@ section button:hover {
 
   margin-bottom: 16px;
 }
+#optionForm input {
+  width: 156px;
+  text-align: right;
+}
 #optionForm input::-webkit-inner-spin-button {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-}
-#optionForm input {
-  padding: 8px 4px;
-
-  background-color: #25252D;
-  border: none;
-  border-bottom: 2px solid #FFFFFF;
-
-  text-align: right;
-  font-size: 18px;
-  color: #FFFFFF;
 }
 
 .back:hover {
@@ -92,4 +85,52 @@ section button:hover {
   bottom: 0;
 
   text-align: center;
+}
+#problem {
+  z-index: 4;
+}
+#problem #problemContent {
+  margin-bottom: 16px;
+
+  font-size: 18px;
+  color: #FFFFFF;
+}
+#problem #problemExample {
+  padding: 12px;
+  margin-bottom: 24px;
+
+  border-radius: 8px;
+  background-color: #323238;
+  font-size: 18px;
+  line-height: 28px;
+  color: #FFFFFF;
+}
+#problem > div > div:not(#problemExample) {
+  display: flex;
+  justify-content: right;
+}
+#problem #problemNext {
+  padding: 0;
+
+  width: 96px;
+  height: 42px;
+
+  text-align: center;
+}
+#problem #problemAnswer {
+  position: absolute;
+  bottom: 0;
+}
+#problem .wrong {
+  color: #F02828;
+}
+#problem img {
+  position: absolute;
+  margin-top: 20px;
+
+  top: 0;
+  left: 0;
+
+  width: 84px;
+  height: 84px;
 }
