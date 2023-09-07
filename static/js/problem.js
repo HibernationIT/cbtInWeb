@@ -75,8 +75,8 @@ class Problem {
 
   #createImage(isAnswer) {
     let src
-    if (isAnswer) src = "/static/images/answer.svg"
-    else src = "/static/images/wrong.svg"
+    if (isAnswer) src = "static/images/answer.svg"
+    else src = "static/images/wrong.svg"
 
     const img = document.createElement("img")
     img.id = "problemImage"
