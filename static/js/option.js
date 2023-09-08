@@ -22,7 +22,7 @@ class Option {
         this.#problemsCount = problems.length
 
         problems.forEach((problem) => {
-          const values = problem.split(",")
+          const values = problem.split("|")
           this.#problems.push({
             problem: values[0],
             example: values[1],

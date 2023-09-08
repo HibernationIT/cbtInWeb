@@ -35,6 +35,10 @@ section button:hover {
   cursor: pointer;
 }
 
+.wrong {
+  color: #F02828;
+}
+
 #optionForm {
   color: #FFFFFF;
   font-size: 18px;
@@ -117,12 +121,16 @@ section button:hover {
 
   text-align: center;
 }
+#problem #problemHelp {
+  position: absolute;
+  bottom: 48px;
+
+  color: #FFFFFF;
+  font-size: 16px;
+}
 #problem #problemAnswer {
   position: absolute;
   bottom: 0;
-}
-#problem .wrong {
-  color: #F02828;
 }
 #problem img {
   position: absolute;
@@ -133,4 +141,30 @@ section button:hover {
 
   width: 84px;
   height: 84px;
+}
+#result {
+  z-index: 5;
+  color: #FFFFFF;
+}
+#result > div > div {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+
+  font-size: 18px;
+  line-height: 36px;
+}
+#result > div > div:nth-of-type(4) {
+  padding-top: 32px;
+}
+#result > div > div > div > span:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+#result button {
+  position: absolute;
+  bottom: 0;
+
+  text-align: center;
 }

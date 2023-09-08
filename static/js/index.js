@@ -17,6 +17,7 @@ window.onload = async () => {
   problemCountInput.addEventListener("focusout", () => {
     if (problemCountInput.value > option.getProblemsCount())
       problemCountInput.value = option.getProblemsCount()
+    option.setSelectProblemsCount(problemCountInput.value)
   })
 }
 const selectMain = async () => {
@@ -32,7 +33,22 @@ const selectSub = async () => {
   option.open()
 }
 const start = () => {
-  problem = new Problem(option.getProblems())
+  problem = new Problem(option.getProblems(), option.getSelectProblemsCount(), end)
   problem.open()
   problem.next()
+}
+const end = () => {
+  document.querySelector("#resultProblemCount").innerText = option.getSelectProblemsCount()
+  document.querySelector("#resultAnswerCount").innerText = problem.getAnswerCount()
+  document.querySelector("#resultWrongCount").innerText = problem.getWrongCount()
+  const score = (problem.getAnswerCount() / option.getSelectProblemsCount()) * 100
+  const resultScoreElement = document.querySelector("#resultScore")
+  resultScoreElement.innerText = score
+  if (score < 70) resultScoreElement.className = "wrong"
+
+  document.querySelector("#resultBack").addEventListener("click", () => {
+    location.reload()
+  })
+
+  document.querySelector("#result").style.left = "0px"
 }

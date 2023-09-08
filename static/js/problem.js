@@ -4,28 +4,33 @@ class Problem {
   #content = document.querySelector("#problemContent")
   #example = document.querySelector("#problemExample")
   #problemNext = document.querySelector("#problemNext")
+  #help = document.querySelector("#problemHelp")
   #answer = document.querySelector("#problemAnswer")
 
   #problems
+  #problemCount
+
   #pickProblem
-  #answerCount
-  #wrongCount
+  #answerCount = 0
+  #wrongCount = 0
   #isNext = false
   #doneProblems = []
 
-  constructor(problems) {
+  constructor(problems, problemCount, fisishFunction) {
     this.#problems = problems
+    this.#problemCount = problemCount
     const checkAnswer = () => {
       if (this.#isNext) {
-        if (!this.#problems.length) {
-          return
-        }
         this.#problemNext.innerText = "확인"
         this.#answer.readOnly = false
         this.#answer.className = null
         this.#answer.value = ""
         this.#isNext = false
         this.#removeImage()
+        if (!this.#problems.length || this.#doneProblems.length === parseInt(this.#problemCount)) {
+          fisishFunction()
+          return
+        }
         this.next()
         this.#answer.focus()
       } else {
@@ -46,6 +51,13 @@ class Problem {
   }
   close() {
     this.#section.style.left = null
+
+  }
+  getAnswerCount() {
+    return this.#answerCount
+  }
+  getWrongCount() {
+    return this.#wrongCount
   }
   next() {
     this.#title.innerText = String(this.#doneProblems.length + 1).padStart(2, "0") + "."
@@ -54,19 +66,35 @@ class Problem {
 
     this.#content.innerText = this.#pickProblem.problem
     this.#example.innerText = this.#pickProblem.example
+    switch (this.#pickProblem.type) {
+      case "1": this.#help.innerText = "영문 o 또는 x 를 입력해주세요."; break
+      case "2": this.#help.innerText = "단어를 입력하세요."; break
+      case "3": this.#help.innerText = "','를 사용하여 단어를 분리하여 입력해주세요."; break
+    }
   }
   check() {
     this.#doneProblems.push(this.#pickProblem)
+    let isAnswer
+    if (this.#answer.value === undefined || this.#answer.value === "") isAnswer = false
+    else if (this.#pickProblem.type === "3") {
+      isAnswer = true
+      const answers = this.#pickProblem.answer.replaceAll(" ", "").split(",")
+      this.#answer.value.replaceAll(" ", "").split(",").forEach((text) => {
+        if (!answers.includes(text)) isAnswer = false
+      })
+    } else {
+      isAnswer = this.#answer.value.replaceAll(" ", "") === this.#pickProblem.answer.replaceAll(" ", "")
+        || this.#answer.value.toUpperCase() === this.#pickProblem.answer.toUpperCase()
+    }
 
-    if (
-      this.#answer.value.replaceAll(" ", "") === this.#pickProblem.answer.replaceAll(" ", "")
-      && this.#answer.value !== undefined && this.#answer.value !== ""
-    ) {
+    if (isAnswer) {
       this.#createImage(true)
+      this.#answerCount++
     } else {
       this.#createImage(false)
       this.#answer.value = this.#pickProblem.answer
       this.#answer.className = "wrong"
+      this.#wrongCount++
     }
     this.#problemNext.innerText = "다음"
     this.#answer.readOnly = true

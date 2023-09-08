@@ -2,6 +2,7 @@
 <html lang="kr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CBT in WEB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +33,7 @@
     <div>
       <h1 id="optionBack" class="back">< &nbsp; &nbsp; 문제 설정</h1>
       <div>
-        <form id="optionForm">
+        <div id="optionForm">
           <div>
             <span>전체 문제 개수</span>
             <div>
@@ -47,7 +48,7 @@
               <span>개</span>
             </div>
           </div>
-        </form>
+        </div>
         <button id="start">시작</button>
       </div>
     </div>
@@ -64,6 +65,40 @@
       <label for="problemAnswer">
         <input id="problemAnswer" />
       </label>
+    </div>
+  </section>
+  <section id="result">
+    <div>
+      <h1>결과</h1>
+      <div>
+        <span>문제 개수</span>
+        <div>
+          <span id="resultProblemCount"></span>
+          <span>개</span>
+        </div>
+      </div>
+      <div>
+        <span>정답 개수</span>
+        <div>
+          <span id="resultAnswerCount"></span>
+          <span>개</span>
+        </div>
+      </div>
+      <div>
+        <span>오답 개수</span>
+        <div>
+          <span id="resultWrongCount"></span>
+          <span>개</span>
+        </div>
+      </div>
+      <div>
+        <span>정답률</span>
+        <div>
+          <span id="resultScore"></span>
+          <span>%</span>
+        </div>
+      </div>
+      <button id="resultBack">돌아가기</button>
     </div>
   </section>
   <script type="application/javascript" src="static/js/main.js"></script>
