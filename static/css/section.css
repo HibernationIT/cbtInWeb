@@ -86,7 +86,7 @@ section button:hover {
   z-index: 3;
 }
 #option > div > div > button {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   text-align: center;
@@ -123,14 +123,14 @@ section button:hover {
   text-align: center;
 }
 #problem #problemHelp {
-  position: absolute;
+  position: fixed;
   bottom: 48px;
 
   color: #FFFFFF;
   font-size: 16px;
 }
 #problem #problemAnswer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 #problem img {
@@ -164,7 +164,7 @@ section button:hover {
   font-weight: bold;
 }
 #result button {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   text-align: center;
