@@ -64,7 +64,8 @@ section button:hover {
   cursor: pointer;
 }
 .list {
-  height: 594px;
+  height: 100%;
+  max-height: 594px;
   overflow: scroll;
 }
 #main {
