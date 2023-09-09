@@ -24,7 +24,6 @@ body > * {
 }
 
 body > * > div {
-    position: relative;
     padding: 0 32px;
 
     width: 350px;
