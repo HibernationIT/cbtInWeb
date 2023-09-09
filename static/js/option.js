@@ -15,14 +15,14 @@ class Option {
   }
 
   async loadData() {
-    await fetch("static/data/" + this.#main + "/" + this.#sub + ".csv")
+    await fetch("static/data/" + this.#main + "/" + this.#sub + ".tsv")
       .then((res) => res.text())
       .then((text) => {
         const problems = text.split("\n")
         this.#problemsCount = problems.length
 
         problems.forEach((problem) => {
-          const values = problem.split("|")
+          const values = problem.split("\t")
           this.#problems.push({
             problem: values[0],
             example: values[1],

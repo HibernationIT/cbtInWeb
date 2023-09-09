@@ -11,7 +11,7 @@ class Main {
   }
 
   async loadData() {
-    await fetch("static/data/교과.csv")
+    await fetch("static/data/교과.tsv")
       .then((res) => res.text())
       .then((text) => this.#list = text.split("\n"))
   }
