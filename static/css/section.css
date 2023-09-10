@@ -87,7 +87,7 @@ section button:hover {
 }
 #option > div > div > button {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
 
   text-align: center;
 }
@@ -131,7 +131,7 @@ section button:hover {
 }
 #problem #problemAnswer {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
 }
 #problem img {
   position: absolute;
@@ -165,7 +165,7 @@ section button:hover {
 }
 #result button {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
 
   text-align: center;
 }

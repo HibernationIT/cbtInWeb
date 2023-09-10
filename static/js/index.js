@@ -20,6 +20,10 @@ window.onload = async () => {
     option.setSelectProblemsCount(problemCountInput.value)
   })
 }
+window.visualViewport.onresize = () => {
+  document.querySelector("html").style.height = window.visualViewport.height + "px";
+  document.querySelector("body").style.height = window.visualViewport.height + "px";
+}
 const selectMain = async () => {
   sub = new Sub(main.getCategory(), selectSub)
   await sub.loadData()
