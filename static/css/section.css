@@ -124,7 +124,7 @@ section button:hover {
 }
 #problem #problemHelp {
   position: absolute;
-  bottom: 48px;
+  bottom: 64px;
 
   color: #FFFFFF;
   font-size: 16px;
