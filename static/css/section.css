@@ -109,6 +109,7 @@ section button:hover {
   font-size: 18px;
   line-height: 28px;
   color: #FFFFFF;
+  white-space: pre-wrap;
 }
 #problem > div > div:not(#problemExample) {
   display: flex;

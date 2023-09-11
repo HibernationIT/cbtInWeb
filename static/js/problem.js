@@ -65,11 +65,12 @@ class Problem {
     this.#problems = this.#problems.filter((p) => p !== this.#pickProblem)
 
     this.#content.innerText = this.#pickProblem.problem
-    this.#example.innerText = this.#pickProblem.example
+    this.#example.innerHTML = this.#pickProblem.example.replaceAll("\\n", "<br />")
     switch (this.#pickProblem.type) {
       case "1": this.#help.innerText = "영문 o 또는 x 를 입력해주세요."; break
       case "2": this.#help.innerText = "단어를 입력하세요."; break
       case "3": this.#help.innerText = "','를 사용하여 단어를 분리하여 입력해주세요."; break
+      case "4": this.#help.innerText = "','를 사용하여 단어를 분리하여 입력해주세요."; break
     }
   }
   check() {
@@ -77,11 +78,12 @@ class Problem {
     let isAnswer
     if (this.#answer.value === undefined || this.#answer.value === "") isAnswer = false
     else if (this.#pickProblem.type === "3") {
-      isAnswer = true
+      let answerCount = 0
       const answers = this.#pickProblem.answer.replaceAll(" ", "").split(",")
       this.#answer.value.replaceAll(" ", "").split(",").forEach((text) => {
-        if (!answers.includes(text)) isAnswer = false
+        if (!answers.includes(text)) answerCount++
       })
+      isAnswer = answerCount === this.#pickProblem.answer.split(",").length
     } else {
       isAnswer = this.#answer.value.replaceAll(" ", "") === this.#pickProblem.answer.replaceAll(" ", "")
         || this.#answer.value.toUpperCase() === this.#pickProblem.answer.toUpperCase()
