@@ -20,7 +20,6 @@ window.onload = async () => {
     option.setSelectProblemsCount(problemCountInput.value)
   })
 }
-document.documentElement.style.overflow = "hidden"
 window.visualViewport.onresize = () => {
   document.querySelector("body").style.height = window.visualViewport.height + "px"
 }
